@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,27 +7,34 @@
     <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
-
 <body>
-    <div id="contains">
-        <div id="form">
-            <h1>Welcome back</h1>
-            <form action="">
-                <div class="input-01">
-                    <input type="email" size="27" placeholder="UserName">
-                </div>
-                <div class="input-01">
-                    <input type="password" size="27" placeholder="Password">
-                </div>
-                <div class="input-01">
-                    <input type="submit" placeholder="Sign-in">
-                </div>
-                <div class="forgot">
-                    <p>Don't have an account? <a href="/sign-up.html">Sing-up</a></p>
-                </div>
-            </form>
-        </div>
+    <div class="container">
+        <span><img src="./imgs/logo.svg" alt="logo"></span>
+        <div class="form_container">
+            <div>
+                <img src="./imgs/log-in.svg" alt="">
+            <h2>Faça seu Login</h2>
+            <span>Entre com suas informações de cadastro</span></div>
+        <form action="">
+            <span>E-mail</span>
+            <span><img src="./imgs/mail.svg" alt="mail"></span>
+            <input type="email" placeholder="Digite seu email">
+            <span>Senha</span>
+            <span><img src="./imgs/lock.svg" alt="lock"></span>
+            <input type="password" placeholder="Digite sua senha">
+            <div>
+                <input class="checkbox-flip" type="checkbox" id="check1"/>
+                <label for="check1"><span></span>Lembre-me</label>
+                <a href="#">Esqueci minha senha</a>
+            </div>
+            <input type="submit" value="Entrar">
+            <div>
+            <p>Não tem uma conta <a href="#">Registre-se</a></p>
+            </div>
+        </form>
     </div>
+    </div>
+    <img src="./imgs/side-image.jpg" alt="">
+    
 </body>
-
 </html>

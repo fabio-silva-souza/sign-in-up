@@ -1,60 +1,181 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&family=Righteous&display=swap');
 *
 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+:root 
+{
+    --text-base: #afb6c2;
+    --text-title: #d4ccb6;
+    --background: #191816;
+    --form-background: #24221f;
+    --primary-color: #ffc632;
 }
 body
 {
-    overflow: hidden;
-}
-#contains , #contains-2 
-{
-
-    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    position: relative;
+    justify-content: space-around;
     align-items: center;
-    background: linear-gradient(130deg ,#1c1c1c, #ffff,#1c1c1c);  
-    
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--background);
 }
-#contains-2
-{
-    display: flex; 
-    flex-direction: row-reverse;
-}
-h1
-{
-    margin-top: 80px;
-    font-size: 2.3rem;
-}
-#form , #form-2
+
+img[alt="logo"]
 {
     position: absolute;
+    padding: .5em;
+    left: 0;
+    top: 70px;
+}
+
+.container
+{
     display: flex;
     flex-direction: column;
-    width: 425px;
-    height: 550px;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+.form_container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    padding: .2em 4.5em;
+    background-color: var(--form-background);
+    color: var(--text-base);
+}
+.form_container div:first-child
+{
+    display: flex;
+    flex-wrap: wrap; 
+    margin: 20px 0;
+}
+.form_container div:first-child h2
+{
+    margin-left: 10px;
+}
+form div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 14px 0;
+}
+form div:last-child,
+form div:last-child a
+{
+    color: #ffc632;
+    margin-left: 4px;
+}
+form
+{
+    display: flex;
+    flex-direction: column;  
+}
+input[type="email"],
+input[type="password"]
+{
+    position: relative;
+    height: 45px;
+    font-size: 15px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 3px solid var(--text-base);
     border-radius: 5px;
-    text-align: center;
-    background: #5c5c5c;   
+    color: var(--text-base);
+
 }
-input
+input[type="email"]:focus,
+input[type="password"]:focus
 {
-    padding: 8px 20px;
-    border-radius: 5px;
-    font-size: 15px; 
+    border: 3px solid var(--primary-color);
+    outline: none;
+    color: #ffc632;
 }
-.input-01
+img[alt="mail"],
+img[alt="lock"]
 {
-    margin: 20px;
+    position: absolute;
+    padding: 12px;
 }
-.input-02
-{    
-    margin: 20px; 
-}
-p
+input:checked
 {
-    font-size: 12px;
+    background-color: #24221f;
 }
+#check
+{
+    width: 30px;
+    background-color: #24221f;
+}
+input[type="submit"]
+{
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #ffc632;
+    transition: .5s;
+}
+input[type="submit"]:hover
+{
+    color: #ffc632;
+    border: 2px solid #ffc632;
+    background-color: transparent;
+    transition: .5s;
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--primary-color);
+    margin-left: 45px;
+    font-weight: 500;
+}
+
+
+/* ===================================== */
+.checkbox-flip, input[type='checkbox']
+    {
+      visibility: hidden;
+    }
+
+    .checkbox-flip + label span
+    {
+      display: inline-block;
+      margin: 0 6px -4px 0;
+      transition: all .3s ease-in-out;
+    }
+    .checkbox-flip + label span ::before  
+    {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      background: transparent;
+      transition: all .3s ease-in-out;
+    }
+    .checkbox-flip + label span, ::after {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffc632;
+    }
+    .checkbox-flip, ::after
+    {
+      z-index: 0;
+      border: none;
+    }
+    .checkbox-flip:checked + label span, ::before
+    {
+      transform: rotateY(180deg);
+      background: #ffc632;
+    }
+
