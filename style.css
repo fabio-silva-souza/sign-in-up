@@ -29,9 +29,9 @@ body
 img[alt="logo"]
 {
     position: absolute;
-    padding: .5em;
+    padding: 1em;
     left: 0;
-    top: 70px;
+    top: 0;
 }
 
 .container
@@ -41,26 +41,57 @@ img[alt="logo"]
     align-items: center;
     justify-content: center;
     width: 50%;
+    height: 100vh;
+    perspective: 1000px;
 }
-.form_container
+/* =====For flip========== */
+.forms_containers
 {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.6s;
+   transform-style: preserve-3d;
+}
+.form_container,
+.form_container_2
+{
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 500px;
-    padding: .2em 4.5em;
+    padding: .3em 4.5em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
     background-color: var(--form-background);
     color: var(--text-base);
 }
-.form_container div:first-child
+.form_container div:first-child,
+.form_container_2 div:first-child
 {
     display: flex;
     flex-wrap: wrap; 
     margin: 20px 0;
 }
-.form_container div:first-child h2
+.form_container div:first-child h2,
+.form_container_2 div:first-child h2
 {
     margin-left: 10px;
+}
+
+.form_container_2
+{
+    height: 560px;
+    transform: rotateY(180deg);
+}
+.forms_containers.active 
+{
+    transform: rotateY(180deg);
 }
 form div
 {
@@ -81,6 +112,7 @@ form
     display: flex;
     flex-direction: column;  
 }
+input[type="text"],
 input[type="email"],
 input[type="password"]
 {
@@ -95,6 +127,7 @@ input[type="password"]
     color: var(--text-base);
 
 }
+input[type="text"]:focus, 
 input[type="email"]:focus,
 input[type="password"]:focus
 {
@@ -102,15 +135,20 @@ input[type="password"]:focus
     outline: none;
     color: #ffc632;
 }
+img[alt="eye"]
+{
+    position: absolute;
+    padding: 12px;
+    right: 15%;
+    cursor: pointer;
+    z-index: 1;
+}
 img[alt="mail"],
 img[alt="lock"]
 {
     position: absolute;
     padding: 12px;
-}
-input:checked
-{
-    background-color: #24221f;
+    z-index: 1;
 }
 #check
 {
@@ -143,39 +181,40 @@ a
 }
 
 
+
 /* ===================================== */
 .checkbox-flip, input[type='checkbox']
-    {
-      visibility: hidden;
-    }
+{
+  visibility: hidden;
+}
 
-    .checkbox-flip + label span
-    {
-      display: inline-block;
-      margin: 0 6px -4px 0;
-      transition: all .3s ease-in-out;
-    }
-    .checkbox-flip + label span ::before  
-    {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      background: transparent;
-      transition: all .3s ease-in-out;
-    }
-    .checkbox-flip + label span, ::after {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #ffc632;
-    }
-    .checkbox-flip, ::after
-    {
-      z-index: 0;
-      border: none;
-    }
-    .checkbox-flip:checked + label span, ::before
-    {
-      transform: rotateY(180deg);
-      background: #ffc632;
-    }
+.checkbox-flip + label span
+{
+  display: inline-block;
+  margin: 0 6px -4px 0;
+  transition: all .3s ease-in-out;
+}
+.checkbox-flip + label span ::before  
+{
+  content: "";
+  position: absolute;
+  z-index: 1;
+  background: transparent;
+  transition: all .3s ease-in-out;
+}
+.checkbox-flip + label span, ::after {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffc632;
+}
+.checkbox-flip, ::after
+{
+  z-index: 0;
+  border: none;
+}
+.checkbox-flip:checked + label span, ::before
+{
+  transform: rotateY(180deg);
+  background: #ffc632;
+}
 

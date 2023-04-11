@@ -1,40 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>login</title>
+  </head>
+  <body>
+    <span><img src="./imgs/logo.svg" alt="logo" /></span>
     <div class="container">
-        <span><img src="./imgs/logo.svg" alt="logo"></span>
+      <div class="forms_containers" id="forms">
         <div class="form_container">
-            <div>
-                <img src="./imgs/log-in.svg" alt="">
-            <h2>Faça seu Login</h2>
-            <span>Entre com suas informações de cadastro</span></div>
-        <form action="">
+          <div>
+            <img src="./imgs/log-in.svg" alt="" />
+            <h2 id="teste">Faça seu Login</h2>
+            <span>Entre com suas informações de cadastro</span>
+          </div>
+          <form action="">
             <span>E-mail</span>
-            <span><img src="./imgs/mail.svg" alt="mail"></span>
-            <input type="email" placeholder="Digite seu email">
+            <span><img src="./imgs/mail.svg" alt="mail" /></span>
+            <input type="email" placeholder="Digite seu email" />
             <span>Senha</span>
-            <span><img src="./imgs/lock.svg" alt="lock"></span>
-            <input type="password" placeholder="Digite sua senha">
+            <span><img src="./imgs/lock.svg" alt="lock" /></span>
+            <span><img src="./imgs/eye.svg" alt="eye" class="eye" /></span>
+            <input
+              type="password"
+              class="password"
+              placeholder="Digite sua senha"
+            />
             <div>
-                <input class="checkbox-flip" type="checkbox" id="check1"/>
-                <label for="check1"><span></span>Lembre-me</label>
-                <a href="#">Esqueci minha senha</a>
+              <input class="checkbox-flip" type="checkbox" id="check1" />
+              <label for="check1"><span></span>Lembre-me</label>
+              <a href="#">Esqueci minha senha</a>
             </div>
-            <input type="submit" value="Entrar">
+            <input type="submit" value="Entrar" />
             <div>
-            <p>Não tem uma conta <a href="#">Registre-se</a></p>
+              <p>
+                Não tem uma conta <a class="btn_flip" href="#">Registre-se</a>
+              </p>
             </div>
-        </form>
+          </form>
+        </div>
+        <div class="form_container_2">
+          <div>
+            <img src="./imgs/log-in.svg" alt="" />
+            <h2>Crie sua Conta</h2>
+            <span>Crie suas informações de cadastro</span>
+          </div>
+          <form action="">
+            <span>Nome</span>
+            <span><img src="./imgs/user.svg" alt="mail" /></span>
+            <input type="text" placeholder="Digite seu nome" />
+            <span>E-mail</span>
+            <span><img src="./imgs/mail.svg" alt="mail" /></span>
+            <input type="email" placeholder="Digite seu email" />
+            <span>Crie sua senha</span>
+            <span><img src="./imgs/lock.svg" alt="lock" /></span>
+            <span><img src="./imgs/eye.svg" alt="eye" class="eye" /></span>
+            <input
+              type="password"
+              class="password"
+              placeholder="Digite sua senha"
+            />
+            <span>Repita sua senha</span>
+            <span><img src="./imgs/lock.svg" alt="lock" /></span>
+            <span><img src="./imgs/eye.svg" alt="eye" class="eye" /></span>
+            <input
+              type="password"
+              class="password"
+              placeholder="Digite sua senha"
+            />
+            <input type="submit" value="Entrar" />
+            <div>
+              <p>Já possui uma conta <a class="btn_flip" href="#">Login</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    </div>
-    <img src="./imgs/side-image.jpg" alt="">
-    
-</body>
+    <img src="./imgs/side-image.jpg" alt="" />
+  </body>
+
+  <script>
+    document.querySelectorAll(".btn_flip").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.getElementById("forms").classList.toggle("active");
+      });
+    });
+
+    document.querySelectorAll(".eye").forEach((eye) => {
+      eye.addEventListener("click", () => {
+        document.querySelectorAll(".password").forEach((password) => {
+          if (password.getAttribute("type") == "password") {
+            password.setAttribute("type", "text");
+          } else {
+            password.setAttribute("type", "password");
+          }
+        });
+      });
+    });
+  </script>
 </html>
